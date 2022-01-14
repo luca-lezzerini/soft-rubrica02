@@ -9,4 +9,4 @@ Telefono
 <button (click)="conta()">Conta</button>
 <button routerLink="/search">Ricerca</button>
 <br>
-<app-elenco-contatti [elenco]="contatti" (cancella)="rimuovi($event)"></app-elenco-contatti>
+<app-elenco-contatti [elenco]="contatti" [flagCancella]="false" (cancella)="rimuovi($event)"></app-elenco-contatti>

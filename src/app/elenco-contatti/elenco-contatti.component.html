@@ -14,7 +14,7 @@
         <td>
             {{c.telefono}}
         </td>
-        <td>
+        <td *ngIf="flagCancella">
             <button (click)="elimina(c)">X</button>
         </td>
     </tr> 

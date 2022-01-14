@@ -9,6 +9,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class ElencoContattiComponent implements OnInit {
 
   @Input() elenco: Contatto[] = [];
+  @Input() flagCancella: boolean = true;
   @Output() cancella: EventEmitter<Contatto> = new EventEmitter<Contatto>();
 
   constructor() { }
