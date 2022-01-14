@@ -18,7 +18,16 @@ export class RubricaManagerService {
     this.rubrica.push(c);
   }
 
-  delRubrica(c: Contatto){
-    // TODO:
+  delRubrica(c: Contatto): Contatto[] {
+    console.log("Prima della cura ", this.rubrica);
+    let n: Contatto[] = [];
+    for (let e of this.rubrica) {
+      if (!((e.nome == c.nome) && (e.cognome == c.cognome) && (e.telefono == c.telefono))) {
+        n.push(e);
+      }
+    }
+    this.rubrica = n;
+    console.log("Dopo la cura ", this.rubrica);
+    return this.getRubrica();
   }
 }

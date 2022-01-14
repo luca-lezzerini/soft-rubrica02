@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { convertActionBinding } from '@angular/compiler/src/compiler_util/expression_converter';
 import { RubricaManagerService } from '../rubrica-manager.service';
 import { Router } from '@angular/router';
+import { SecurityService } from '../security.service';
 
 @Component({
   selector: 'app-main-page',
@@ -16,7 +17,12 @@ export class MainPageComponent implements OnInit {
 
   constructor(
     private rub: RubricaManagerService,
-    private router: Router) {
+    private router: Router,
+    private sec: SecurityService
+  ) {
+    if (!sec.isAutenticato()) {
+      router.navigateByUrl("/login");
+    }
     this.contatti = rub.getRubrica();
   }
 
@@ -41,11 +47,7 @@ export class MainPageComponent implements OnInit {
     this.router.navigateByUrl("/count");
   }
 
-  ricerca() {
-    // TODO:
-  }
-
   rimuovi(c: Contatto) {
-    this.rub.delRubrica(c);
+    this.contatti = this.rub.delRubrica(c);
   }
 }

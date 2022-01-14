@@ -7,6 +7,6 @@ Telefono
 <br>
 <button (click)="aggiungi()">Aggiungi</button>
 <button (click)="conta()">Conta</button>
-<button (click)="ricerca()">Ricerca</button>
+<button routerLink="/search">Ricerca</button>
 <br>
 <app-elenco-contatti [elenco]="contatti" (cancella)="rimuovi($event)"></app-elenco-contatti>

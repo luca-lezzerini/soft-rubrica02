@@ -1,1 +1,4 @@
-<p>search-page works!</p>
+<input type="text" [(ngModel)]="criterio">
+<button (click)="cerca()">Cerca</button>
+<button routerLink="/main">Main Page</button>
+<app-elenco-contatti [elenco]="lista" (cancella)="rimuovi($event)"></app-elenco-contatti>
