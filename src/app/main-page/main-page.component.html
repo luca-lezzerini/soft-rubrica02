@@ -1,0 +1,12 @@
+Nome
+<input type="text" [(ngModel)]="contatto.nome">
+Cognome
+<input type="text" [(ngModel)]="contatto.cognome">
+Telefono
+<input type="tel" [(ngModel)]="contatto.telefono">
+<br>
+<button (click)="aggiungi()">Aggiungi</button>
+<button (click)="conta()">Conta</button>
+<button (click)="ricerca()">Ricerca</button>
+<br>
+<app-elenco-contatti [elenco]="contatti" (cancella)="rimuovi($event)"></app-elenco-contatti>
