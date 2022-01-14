@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Contatto } from '../model/contatto';
+import { RubricaManagerService } from '../rubrica-manager.service';
 
 @Component({
   selector: 'app-count-page',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CountPageComponent implements OnInit {
 
-  constructor() { }
+  contatti: Contatto[] = [];
+
+  constructor(private rub: RubricaManagerService) {
+    this.contatti = rub.getRubrica();
+  }
 
   ngOnInit(): void {
   }
 
+  
 }

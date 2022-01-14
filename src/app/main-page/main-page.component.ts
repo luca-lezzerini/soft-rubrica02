@@ -2,6 +2,7 @@ import { Contatto } from './../model/contatto';
 import { Component, OnInit } from '@angular/core';
 import { convertActionBinding } from '@angular/compiler/src/compiler_util/expression_converter';
 import { RubricaManagerService } from '../rubrica-manager.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-page',
@@ -13,7 +14,9 @@ export class MainPageComponent implements OnInit {
   contatto: Contatto = new Contatto();
   contatti: Contatto[] = [];
 
-  constructor(private rub: RubricaManagerService) {
+  constructor(
+    private rub: RubricaManagerService,
+    private router: Router) {
     this.contatti = rub.getRubrica();
   }
 
@@ -35,7 +38,7 @@ export class MainPageComponent implements OnInit {
   }
 
   conta() {
-    // TODO:
+    this.router.navigateByUrl("/count");
   }
 
   ricerca() {
